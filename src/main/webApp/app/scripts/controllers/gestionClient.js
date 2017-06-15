@@ -14,13 +14,9 @@
     vm.currentUser=Session;
     vm.teams = [];
     vm.clientsList = [];
-    //vm.teamNameList = [];
     vm.teamAndClient = [];
     vm.getAllClients=getAllClients;
     vm.getTeamIdByName=getTeamIdByName;
-
- /*   vm.deleteSubject = deleteSubject;
-    vm.addSubject = addSubject;*/
 
     init();
 
@@ -54,7 +50,7 @@
         for(var k=0; k < response.data.length; k++){
           teamName[k] = response.data[k].name;
         }
-        //vm.teamNameList[i] = teamName;
+
         vm.teamAndClient[i] = { lastName : vm.clientsList[i].lastName,
                         firstName : vm.clientsList[i].firstName,
                         teamName : teamName
@@ -69,7 +65,7 @@
       }
     }
 
-    function addTeamToClient(client, teamId, teamName){
+    function addTeamToClient(client, teamId){
       var url ="/teams/"+teamId;
       var teamPromise = $http.get(url);
       teamPromise.then(function (response) {
@@ -89,54 +85,93 @@
         }
 
         // add client
-        persons = persons + ",{\"id\":"+client.id+"}";
+        if(i ===0){
+          persons = persons + "{\"id\":"+client.id+"}";
+        }
+        else{
+          persons = persons + ",{\"id\":"+client.id+"}";
+        }
+
 
         var body =  "{\"id\":\"" + team.id + "\",\"name\":\"" + team.name + "\", \"subjectBySubjectId\": {\"id\":\"" + team.subjectBySubjectId.id + "\"}, \"persons\":[ " + persons + "]}";
 
         var url = "/updateTeam";
         var updatePromise = $http.post(url,body);
-        updatePromise.then(function(response){
+        updatePromise.then(function(){
           init();
         })
       });
     }
 
-    function getClientByName(clientName, teamId, teamName){
+    function deleteTeamFromClient(clientName, teamId){
+      var url ="/teams/"+teamId;
+      var teamPromise = $http.get(url);
+      teamPromise.then(function (response) {
+        var team = response.data;
+
+        var persons = "";
+
+        for(var k=0; k < team.persons.length; k++){
+
+          if(k === 0 && (team.persons[k].lastName !== clientName)){
+            persons = persons + "{\"id\":"+team.persons[k].id+"}";
+          }
+          else if(team.persons[k].lastName !== clientName){
+            persons = persons + ",{\"id\":"+team.persons[k].id+"}";
+          }
+
+        }
+
+        var body =  "{\"id\":\"" + team.id + "\",\"name\":\"" + team.name + "\", \"subjectBySubjectId\": {\"id\":\"" + team.subjectBySubjectId.id + "\"}, \"persons\":[ " + persons + "]}";
+
+        var url = "/updateTeam";
+        var updatePromise = $http.post(url,body);
+        updatePromise.then(function(){
+          init();
+        })
+      });
+    }
+
+    function getClientByName(clientName, teamId, action){
       var url ="/client?clientFirstName="+clientName;
       var clientPromise = $http.get(url);
       clientPromise.then(function (response) {
         var client = response.data;
-        addTeamToClient(client, teamId, teamName);
+        if(action === "add"){
+          addTeamToClient(client, teamId);
+        }else{
+          deleteTeamFromClient(clientName, teamId);
+        }
+
       });
     }
 
-    function getTeamIdByName(teamName, clientName){
-      var url ="/teamId?teamName="+teamName;
-      var teamIdPromise = $http.get(url);
-      teamIdPromise.then(function (response) {
-        var teamId = response.data;
-        getClientByName(clientName, teamId, teamName);
-      });
+    function getTeamIdByName( teamName, clientName, action,teamNameList ){
+
+      if(action === "delete"){
+        for(var i=0; i< teamNameList.length; i++){
+          var teamName = teamNameList[i];
+
+          var url ="/teamId?teamName="+teamName;
+          var teamIdPromise = $http.get(url);
+
+          teamIdPromise.then(function (response) {
+            var teamId = response.data;
+            getClientByName(clientName, teamId, action);
+          });
+        }
+      }
+
+      else{
+        var url ="/teamId?teamName="+teamName;
+        var teamIdPromise = $http.get(url);
+
+        teamIdPromise.then(function (response) {
+          var teamId = response.data;
+          getClientByName(clientName, teamId, action);
+        });
+      }
     }
 
-
-
-/*
-    function deleteSubject(id) {
-      var url = "/subject/" + id;
-      var subjectDeleted = $http.delete(url);
-      subjectDeleted.then(function () {
-        vm.getAll();
-      });
-    }
-
-    function addSubject(user) {
-      angular.copy(user, vm.master);
-      var url = "/subject";
-      var newSubject = $http.post(url, vm.master);
-      newSubject.then(function () {
-        vm.getAll();
-      });
-    }*/
   }
 })();

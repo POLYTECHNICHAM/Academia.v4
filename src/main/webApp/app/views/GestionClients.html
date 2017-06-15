@@ -30,21 +30,25 @@
             <tbody>
 
             <tr ng-repeat="result in vm.teamAndClient">
-              <td id="img_center"><img src="./images/avatar.png" width="142" height="142"></td>
+              <td id="img_center"><img src="./images/avatar.png" width="100" height="100"></td>
 
               <td class="ver_align">{{ result.lastName }}</td>
               <td class="ver_align">{{ result.firstName }}</td>
+
+
               <td class="ver_align">
-                <select multiple>
+                <select multiple ng-model="teamSelected">
                   <option ng-repeat="team in result.teamName">{{team}}</option>
                 </select></br>
-                <button class="btn btn-danger" ng-click="">Delete</button>
+                <button class="btn btn-danger" ng-click="vm.getTeamIdByName(team.name, result.lastName,'delete', teamSelected)">Delete
+                </button>{{teamSelected}}
               </td>
+
               <td>
                 <select ng-model="team.name">
                   <option ng-repeat="team in vm.teams" >{{team.name}}</option>
                 </select></br>
-                <button class="btn btn-primary" ng-click="vm.getTeamIdByName(team.name, result.lastName)">
+                <button class="btn btn-primary" ng-click="vm.getTeamIdByName(team.name, result.lastName,'add')">
                   <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Update</span>
                 </button>
               </td>
@@ -54,14 +58,6 @@
 
             </tbody>
           </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" dismiss="modal" ng-click="">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Annuler</span>
-          </button>
-          <button class="btn btn-primary" ng-click="">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Update</span>
-          </button>
         </div>
       </div>
     </div>
