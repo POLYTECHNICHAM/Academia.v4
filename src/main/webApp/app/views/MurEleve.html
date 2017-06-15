@@ -1,0 +1,45 @@
+   <div class="row">
+        <div class="col-sm-2 col-md-2 menu-g">
+            <ul class="nav nav-pills nav-stacked">
+              <li ><a href="#/RepartitionEquipeEleve"><i class="fa fa-table fa-fw"></i>Répatition équipe</a></li>
+                <li ><a href="#/DepotEleve"><i class="fa fa-home fa-fw"></i>Dépôts documents</a></li>
+                <li><a href="#/PlanningVuEleve"><i class="fa fa-file-o fa-fw"></i>Prise de rdv </a></li>
+                <li class="active"><a href="#/MurEleve"><i class="fa fa-bar-chart-o fa-fw"></i>Mur Elève</a></li>
+                <li><a href="#/SujetEleve"><i class="fa fa-table fa-fw"></i>Sujet</a></li>
+            </ul>
+        </div>
+
+     <div class="col-sm-10 col-md-10 well">
+       <div class="mainContent" >
+         <div class="col-md-offset-1 col-md-10">
+           <form class="cadre-page-ele-mur" ng-model="message.dateMessage" ng-model="message.hourMessage">
+             <textarea placeholder ="Exprimez-vous" rows="5" id="text-ele-mur" ng-model="message.content" required></textarea>
+             <div class="bouton-form"><button id="publ-ele-mur" class="btn btn-primary" ng-click="sc.addMessage(message)">Publier</button></div>
+           </form>
+           <div class="cadre-mur-pec">
+            <div class="publ">
+
+           <span ng-click="vm.check=!vm.check"> Afficher les commentaires
+             <div id="img-com-ele-mur" class="glyphicon glyphicon-comment"></div> </span>
+           <div id="tog-allcom-ele-mur" ng-if="vm.check">
+             <div id="com-1">
+               <div class="publ-ele-mur cadre-publi" ng-repeat="message in sc.messages">
+                 <span class="un-li-ele-publ">
+
+                   <p id="nom-ele-publ-mur">{{message.personByPersonId.firstName}} {{message.personByPersonId.lastName}}</p> |
+
+                   <p id="heure-publ-ele-mur">{{message.dateMessage |date:'dd/MM/yyyy'}} | {{message.hourMessage |date:'HH:mm:ss'}}</p>
+                   <p id="boutsup-publ-ele-mur" class="glyphicon glyphicon-trash" ng-click="sc.deleteMessage(message.id)"></p>
+                 </span>
+                 <p id="text-publ-ele-mur">
+                   {{message.content}} <br>
+                 </p>
+               </div>
+             </div>
+           </div>
+            </div>
+           </div>
+         </div>
+       </div>
+     </div>
+    </div>

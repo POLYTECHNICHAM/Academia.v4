@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+  <entity class="com.Entities.Wallcom">
+    <table name="wallcom" schema="academia" catalog=""/>
+    <attributes>
+      <id name="id">
+        <column name="id" precision="11"/>
+      </id>
+      <basic name="content">
+        <column name="content" nullable="false"/>
+      </basic>
+      <basic name="wallMessageId">
+        <column name="wallMessage_id" nullable="false" precision="11"/>
+      </basic>
+      <basic name="personId">
+        <column name="Person_id" nullable="false" precision="11"/>
+      </basic>
+      <basic name="dateMessage">
+        <column name="dateMessage" nullable="false" length="45"/>
+      </basic>
+      <basic name="hourMessage">
+        <column name="hourMessage" nullable="false" length="45"/>
+      </basic>
+      <many-to-one name="wallmessageByWallMessageId" optional="true" target-entity="com.Entities.Wallmessage">
+        <join-column name="wallMessage_id" nullable="false" referenced-column-name="id"/>
+      </many-to-one>
+      <many-to-one name="personByPersonId" optional="true" target-entity="com.Entities.Person">
+        <join-column name="Person_id" nullable="false" referenced-column-name="id"/>
+      </many-to-one>
+    </attributes>
+  </entity>
+</entity-mappings>

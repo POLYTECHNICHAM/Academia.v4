@@ -1,0 +1,43 @@
+{
+  "name": "academia",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/main/webApp/app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "bootstrap": "^3.2.0",
+    "angular-animate": "1.5.8",
+    "angular-aria": "1.5.8",
+    "angular-cookies": "1.5.8",
+    "angular-messages": "1.5.8",
+    "angular-resource": "1.5.8",
+    "angular-route": "1.5.8",
+    "angular-sanitize": "1.5.8",
+    "angular-touch": "1.5.8",
+    "angular-bootstrap": "^2.5.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.5.8"
+  },
+  "appPath": "src/main/webApp/",
+  "moduleName": "academia",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}

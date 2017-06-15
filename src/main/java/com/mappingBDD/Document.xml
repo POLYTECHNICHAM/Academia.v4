@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+  <entity class="com.Entities.Document">
+    <table name="document" schema="academia" catalog=""/>
+    <attributes>
+      <id name="id">
+        <column name="id" precision="11"/>
+      </id>
+      <basic name="depoDate">
+        <column name="depoDate" nullable="false" length="45"/>
+      </basic>
+      <basic name="path">
+        <column name="path" nullable="false" length="45"/>
+      </basic>
+      <basic name="teamId">
+        <column name="Team_id" nullable="false" precision="11"/>
+      </basic>
+      <basic name="depositBoxId">
+        <column name="DepositBox_id" nullable="false" precision="11"/>
+      </basic>
+      <many-to-one name="teamByTeamId" optional="true" target-entity="com.Entities.Team">
+        <join-column name="Team_id" nullable="false" referenced-column-name="id"/>
+      </many-to-one>
+      <many-to-one name="depositboxByDepositBoxId" optional="true" target-entity="com.Entities.Depositbox">
+        <join-column name="DepositBox_id" nullable="false" referenced-column-name="id"/>
+      </many-to-one>
+    </attributes>
+  </entity>
+</entity-mappings>

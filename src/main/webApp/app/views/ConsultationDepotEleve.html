@@ -1,0 +1,63 @@
+<div class="row">
+        <section class="col-sm-2 col-md-2 menu-g">
+            <ul class="nav nav-pills nav-stacked">
+                <li ><a href="#/PlanningRespo"><i class="fa fa-home fa-fw"></i>Planning</a></li>
+                <li><a href="#/GestionClients"><i class="fa fa-list-alt fa-fw"></i>Gestion clients</a></li>
+                <li><a href="#/Equipe"><i class="fa fa-bar-chart-o fa-fw"></i>Equipes</a></li>
+                <li><a href="#/Sujet"><i class="fa fa-table fa-fw"></i>Sujets</a></li>
+                <li class="active"> <a href="#/ConsultationDepotEleve"><i class="fa fa-tasks fa-fw"></i>Dépôts élèves</a></li>
+                <li><a href="#/MurRespo"><i class="fa fa-calendar fa-fw"></i>Mur</a></li>
+                <li><a href="#/FicheEvaluation"><i class="fa fa-calendar fa-fw"></i>Fiche évaluation</a></li>
+
+            </ul>
+        </section>
+        <div class="col-sm-10 col-md-10 well">
+        <span id="zonedoc">
+          <div class="row fic-depot">
+
+            <form>
+              <div class="col-sm-5 col-md-5">
+             <p>Choissez une date limite : </p>
+              <input type="date"  ng-model="deposit.limitDate" placeholder="jj/mm/aaaa" required>
+              </div>
+              <div class="col-sm-5 col-md-5">
+              <p>Entrer un titre : </p>
+              <input type="text"  ng-model="deposit.title" required>
+
+              <button ng-click="an.addDeposit(deposit)">Valider</button>
+              </div>
+              <div class="col-sm-2 col-md-2 but-consdepele">
+              <button class="btn btn-primary" ng-click="an.addDepositbox(deposit)">Valider</button>
+              </div>
+
+          </form>
+            </div>
+          </div>
+        </span>
+
+          <div ng-repeat="i in an.depositboxs"> Les zones de dépôts que vous avez crées :<br/>
+            title : {{i.title}}
+            datelimite : {{i.limitDate}}
+            <p id="boutsup-publ-ele-mur" class="glyphicon glyphicon-trash" ng-click="an.deleteDepositbox(i.id)"></p>
+
+          </div>
+          <!--<span id="zonedoc2">
+          <div class="row fic-depot">
+              <p class="col-md-1 icone-depot glyphicon glyphicon-folder-close"></p>
+              <p class="col-md-5 nom-fichier">Livrable 1</p>
+              <div class="col-md-5">
+              <div class="row">
+                  <div class="date_depot">Créé le : (code)</div>
+              </div>
+              <div class="row">
+                  <div class="date_limite">Date limite de dépôt : (code)</div>
+              </div>
+              <div class="row">
+                  <div class="nbr_depot">4 décomuenets déposés</div>
+              </div>
+              </div>
+              <button type="button" class="col-md-1 tele_fichier glyphicon glyphicon-download-alt" ></button>
+              <button type="button" class="col-md-1 tele_fichier glyphicon glyphicon-trash"></button>
+          </div>-->
+        </span>
+    </div>

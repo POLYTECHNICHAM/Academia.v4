@@ -1,0 +1,68 @@
+    <div class="row">
+        <section class="col-sm-2 col-md-2 menu-g">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#/PlanningRespo"><i class="fa fa-home fa-fw"></i>Planning</a></li>
+                <li><a href="#/GestionClients"><i class="fa fa-list-alt fa-fw"></i>Gestion clients</a></li>
+                <li><a href="#/Equipe"><i class="fa fa-bar-chart-o fa-fw"></i>Equipes</a></li>
+                <li><a href="#/Sujet"><i class="fa fa-table fa-fw"></i>Sujets</a></li>
+                <li><a href="#/ConsultationDepotEleve"><i class="fa fa-tasks fa-fw"></i>Dépôts élèves</a></li>
+                <li><a href="#/MurRespo"><i class="fa fa-calendar fa-fw"></i>Mur</a></li>
+                <li><a href="#/FicheEvaluation"><i class="fa fa-calendar fa-fw"></i>Fiche évaluation</a></li>
+            </ul>
+        </section>
+
+      <div class="col-sm-10 col-md-10 well">
+        <span class="row cadre1-plcl">
+
+          <p class="row titre-plcl">Accepter ou refuser des rendez-vous :</p>
+          <!-- afficher que les élèves -->
+       <table class="cadre-rdv-plcl">
+           <tr class="lig-rdv-cl" ng-repeat="i in an.appointments">
+             <p>
+             <td>équipe: {{i.teamByTeamId.name}}</td>
+             <td class="date-rdv-cl">le {{i.dateA |date:'dd/MM/yyyy'}}</td>
+             <td class="mot-de">de</td>
+             <td class="rdv-hd-plcl">{{i.hStart |date:'HH:mm'}}</td>
+             <td class="mot-a">à</td>
+             <td class="rdv-hf-plcl">{{i.hEnd |date:'HH:mm'}}</td>
+             <td><button class="sup-rdv" ng-click="an.deleteAppointment(i.id)">Supprimer</button></td>
+             </p>
+           </tr>
+
+       </table>
+          <br>
+          <p class="row titre-plcl">Entrer vos disponibilités :</p>
+          <p ng-model="appointment.Person_id" ng-change="appointment.Person_id2 = an.currentUser.id">Quelles-sont vos indisponibilités ? <br/></p>
+        <form>
+              <div class="col-md-offset-1 col-md-10 pla-vu-ele">
+              <p class="col-xs-12 col-sm-3 col-md-3">
+                <input type="date"  ng-model="appointment.dateA" placeholder="jj/mm/aaaa" required></p>
+              <p class="col-xs-2 col-sm-1 col-md-1">de</p>
+              <p class="col-xs-4 col-sm-2 col-md-2">
+                <input type="time" ng-model="appointment.hStart" placeholder="hh:mm" required></p>
+              <p class="col-xs-2 col-sm-2 col-md-2">jusqu'à</p>
+              <p class="col-xs-4 col-sm-2 col-md-2">
+                <input type="time"  ng-model="appointment.hEnd" placeholder="hh:mm" required></p>
+              <p class="col-xs-12 col-sm-2 col-md-2"><button class="btn btn-primary" ng-click="an.addAppointment(appointment)">Valider</button></p>
+              </div>
+       </form>
+       <br/>
+
+        <span class="row cadre2-plcl">
+          id de l'utilisateur connecté : {{an.currentUser.id}}
+          <!-- afficher que les rdv de l'id de l'utilisateur connecté-->
+          <div ng-if="appointment.Person_id = an.currentUser.id">
+          <p class="row titre-plcl"> Planning pendant la semaine :</p>
+          <span ng-repeat="c in an.appointments | limitTo: 5">
+            Vous êtes disponible le {{c.dateA |date:'dd/MM/yyyy'}}
+            de {{c.hStart |date:'HH:mm'}} jusqu'à {{c.hEnd |date:'HH:mm'}} </div> <br/>
+          </span>
+        </span>
+    </div>
+</div>
+
+
+
+
+
+

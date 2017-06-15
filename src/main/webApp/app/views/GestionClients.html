@@ -1,0 +1,69 @@
+<div class="row">
+  <section class="col-sm-2 col-md-2 menu-g">
+    <ul class="nav nav-pills nav-stacked">
+      <li ><a href="#/PlanningRespo"><i class="fa fa-home fa-fw"></i>Planning</a></li>
+      <li class="active"><a href="#/GestionClients"><i class="fa fa-list-alt fa-fw"></i>Gestion clients</a></li>
+      <li><a href="#/Equipe"><i class="fa fa-bar-chart-o fa-fw"></i>Equipes</a></li>
+      <li><a href="#/Sujet"><i class="fa fa-table fa-fw"></i>Sujets</a></li>
+      <li><a href="#/ConsultationDepotEleve"><i class="fa fa-tasks fa-fw"></i>Dépôts élèves</a></li>
+      <li><a href="#/MurRespo"><i class="fa fa-calendar fa-fw"></i>Mur</a></li>
+      <li><a href="#/FicheEvaluation"><i class="fa fa-calendar fa-fw"></i>Fiche évaluation</a></li>
+
+    </ul>
+  </section>
+  <div class="col-sm-2 col-md-10 table-equipe">
+    <div class="row">
+      <div class=" col-md-offset-1 col-md-10 table-equipe">
+      <div class="container" id="livrable">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+             <th>Photo</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Equipe</th>
+              <th>Nouvelle équipe</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat="result in vm.teamAndClient">
+              <td id="img_center"><img src="./images/avatar.png" width="142" height="142"></td>
+
+              <td class="ver_align">{{ result.lastName }}</td>
+              <td class="ver_align">{{ result.firstName }}</td>
+              <td class="ver_align">
+                <select multiple>
+                  <option ng-repeat="team in result.teamName">{{team}}</option>
+                </select></br>
+                <button class="btn btn-danger" ng-click="">Delete</button>
+              </td>
+              <td>
+                <select ng-model="team.name">
+                  <option ng-repeat="team in vm.teams" >{{team.name}}</option>
+                </select></br>
+                <button class="btn btn-primary" ng-click="vm.getTeamIdByName(team.name, result.lastName)">
+                  <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Update</span>
+                </button>
+              </td>
+
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" dismiss="modal" ng-click="">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Annuler</span>
+          </button>
+          <button class="btn btn-primary" ng-click="">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Update</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

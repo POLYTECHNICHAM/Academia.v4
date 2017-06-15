@@ -1,0 +1,224 @@
+<div class="row">
+  <div class="col-sm-2 col-md-2 menu-g">
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#/PlanningRespo"><i class="fa fa-home fa-fw"></i>Planning</a></li>
+      <li><a href="#/GestionClients"><i class="fa fa-list-alt fa-fw"></i>Gestion clients</a></li>
+      <li><a href="#/Equipe"><i class="fa fa-bar-chart-o fa-fw"></i>Equipes</a></li>
+      <li><a href="#/Sujet"><i class="fa fa-table fa-fw"></i>Sujets</a></li>
+      <li><a href="#/ConsultationDepotEleve"><i class="fa fa-tasks fa-fw"></i>Dépôts élèves</a></li>
+      <li><a href="#/MurRespo"><i class="fa fa-calendar fa-fw"></i>Mur</a></li>
+      <li class="active"><a href="#/FicheEvaluation"><i class="fa fa-calendar fa-fw"></i>Fiche évaluation</a></li>
+    </ul>
+  </div>
+  <div class="col-sm-10 col-md-10 well">
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Élèves</th>
+        <th>Sujet</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="team in vm.teams">
+        <td>{{team.name}}</td>
+        <td ><div ng-repeat="person in team.persons" ><p ng-if="person.typePerson=='eleve'">{{person.firstName}} {{person.lastName}}</br></p></div></td>
+
+        <td>{{team.subjectTitle}}</td>
+
+        <td><button type="button" class="btn btn-primary"
+                    ng-click="vm.initEval(team.id)" >
+          <span class="glyphicon glyphicon-list-alt"> Fiche évaluation</span></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="col-sm-10 col-md-10 well" ng-if="vm.teams!=null">
+<span class="row cadre1-plcl">
+  Nom du groupe : {{vm.teamSelect.name}}<br>
+  Nom du client: {{vm.client.firstName}} {{vm.client.lastName}}<br/><br/>
+
+  <div class="titre-plcl">Réunions</div>
+  <table class="table table-striped">
+    <thead>
+    <th>id</th>
+      <th>Date</th>
+      <th>Heure début</th>
+      <th>Durée</th>
+      <th>Outils fournis</th>
+      <th>Remarques</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="appointment in vm.appointments">
+      <td>{{ appointment.id }}</td>
+        <td>{{ appointment.dateA }}</td>
+        <td>{{ appointment.hStart }}</td>
+        <td>{{ appointment.hStart-appointment.hEnd }}</td>
+        <td>{{ appointment.DeliveredTools }}</td>
+      <td>{{ appointment.remark }}</td>
+
+    </tr>
+    </tbody>
+  </table>
+    <!--<tr>-->
+      <!--<td class="ligne1"><input type="date" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="time" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td class="ligne1"><input type="date" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="time" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td class="ligne1"><input type="date" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="time" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+      <!--<td class="ligne1"><input type="date" ng-model="" required></td>-->
+      <!--<td class="ligne1"><input type="time" ng-model="" required></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+    <!--</tr>-->
+    <!--</table>-->
+  <!--<table/><br/>-->
+    <!--<div class="titre-plcl">Mail</div>-->
+    <!--<table class="tableau1">-->
+      <!--<tr>-->
+        <!--<td class="ligne1">Numéro</td>-->
+        <!--<td class="ligne1">Objet</td>-->
+        <!--<td class="ligne1">Fichiers joints</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+       <!--</table>-->
+      <!--<table/><br/>-->
+      <!--<div class="titre-plcl">Sujet</div>-->
+      <!--<textarea rows="5" id="text-ele-mur" ng-model="message.content"></textarea><br/>-->
+      <!--<table></table>-->
+      <!--<div class="titre-plcl">Liste des fonctionnalités</div>-->
+      <!--<table class="tableau1">-->
+      <!--<tr>-->
+        <!--<td class="ligne1"></td>-->
+        <!--<td class="ligne1">Réunion 1</td>-->
+        <!--<td class="ligne1">Réunion 2</td>-->
+        <!--<td class="ligne1">Réunion 3</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+         <!--</table>-->
+      <!--<table/><br/>-->
+
+      <!--<div class="titre-plcl">Fonctionnalités proposées par les étudiants et acceptées par le client</div>-->
+      <!--<table class="tableau1">-->
+      <!--<tr>-->
+        <!--<td class="ligne1"></td>-->
+        <!--<td class="ligne1">Réunion 1</td>-->
+        <!--<td class="ligne1">Réunion 2</td>-->
+        <!--<td class="ligne1">Réunion 3</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="ligne1"><input type="text" maxlength="44" size="34" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+        <!--<td class="ligne1"><input type="text" ng-model="" ></td>-->
+      <!--</tr>-->
+      <!--<table/><br/>-->
+      <!--<button type="submit" class="btn btn-primary">-->
+        <!--<span class="glyphicon glyphicon-save"></span>&nbsp;<span>Update</span>-->
+      <!--</button>-->
+
+
+
+  <!--</table>-->
+
+</span>
+  </div>
+</div>

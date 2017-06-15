@@ -1,0 +1,477 @@
+.ligne1{
+  border: 1px solid black;
+}
+.tableau1{
+  border-collapse: collapse;
+}
+.inputrond{
+  border-radius: 4px;
+}
+
+.btnConnexion{
+  border-radius: 14px;
+  background-color: #21b186;
+  border-color: #ae4c8b;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #f8cd17;
+  padding: 0.2em 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0; padding: 0;
+}
+body {
+  display : table;
+  width: 100%;
+}
+
+
+html {
+  height: 100%;
+}
+body {
+  padding: 0;
+}
+.row {
+  margin: 0;
+}
+.well {
+  background-color: transparent;
+  border:none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.bouton-form {
+  width:100%;
+  text-align: center;
+  padding: 20px 0;
+}
+.titreh1 {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header, .marketing, .footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 0;
+  border:none;
+}
+
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+#bs-example-navbar-collapse-1 {
+    background-color: #0061a1;
+    height: 66px !important;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+.logo1 {
+    display : block;
+    position: absolute;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+}
+.navbar {
+  margin-bottom: 0px;
+  border: none;
+}
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+.nav.navbar-nav.navbar-right {
+    margin-top: 9px;
+}
+.logo-site {
+  color: white !important;
+  margin-left: 0 !important;
+  font-family: initial;
+  letter-spacing: 4.5px;
+  font-size: 30px;
+}
+
+/* MENU */
+
+.bk-menu {
+    background-color: blueviolet;
+}
+.bk-menu a {
+  color: white;
+}
+.nav-pills li a:hover{
+  background-color: #337ab7;
+}
+.menu-g {
+  padding: 0;
+  z-index: 10;
+}
+.nav-pills > li > a {
+  border-radius: 0 20px 20px 0;
+}
+.nav-pills > li > a:hover {
+  color: white;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 20px;
+  text-align: center;
+  background-color: blueviolet;
+  border: none;
+  color: white;
+  padding-bottom: 20px;
+  position: absolute;
+  height: 69px;
+  width: 100%;
+  bottom: 0;
+}
+#cadre-content {
+  height: 100%;
+  padding-top:66px;
+}
+.all-content {
+  height:100%;
+}
+.cadre100 {
+  height:100%;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 0;
+  background-color: white;
+  height: 100%;
+  margin-bottom: -34px;
+  padding:0;
+}
+.jumbotron p {
+  margin:0;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+    position: absolute;
+    width:100%;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+}
+
+
+/* page authentification */
+
+.modal-footer {
+  text-align: center;
+  border-top: none;
+}
+.jumbotron .logo1 {
+  display: none;
+}
+.lead {
+  margin:0;
+}
+#form-authen {
+  padding-top:30vh;
+}
+#form-authen p {
+  padding-bottom: 30px;
+}
+#form-authen label {
+  padding: 10px 0;
+}
+.cadre-authen {
+  padding-top:100px;
+}
+.barre-authen button.btn.btn-primary {
+  width: 100%;
+}
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+  background-color: #0061a1;
+}
+.navbar-header {
+  padding: 8px;
+}
+
+/* Page mur eleve et responsable */
+
+#nom-ele-publ-mur, #date-publ-ele-mur, #heure-publ-ele-mur, .un-li-ele-publ {
+  display:inline-block;
+}
+
+#boutsup-publ-ele-mur {
+  float: right;
+}
+.un-li-ele-publ {
+    width: 100%;
+    height: 40px;
+}
+.cadre-publi {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+#com-publ-ele-mur div {
+  display: inline-block;
+  padding: 0 5px;
+  cursor: pointer;
+}
+#img-com-ele-mur img, #boutsup-publ-ele-mur img  {
+  height: 20px;
+}
+div#com-publ-ele-mur {
+    text-align: right;
+}
+.cadre-page-ele-mur {
+  margin:10px 0;
+}
+.cadre-mur-pec {
+  border: 1px solid grey;
+  padding: 10px;
+  margin-top:40px;
+}
+.publ {
+  padding-bottom: 20px;
+}
+
+/* Page sujet eleve */
+
+#nomsujet-ele {
+  text-align: center;
+  padding-bottom: 25px;
+  padding-top: 10px;
+  font-size: 30px;
+}
+#text-sujet-ele {
+  font-size: 17px;
+  text-align: center;
+}
+
+/* Sujet */
+
+#depot table td {
+  padding: 10px;
+}
+#depot table #but-suj {
+  text-align: center;
+}
+
+/* Page depot eleve */
+
+
+.dep-file {
+  margin:auto;
+}
+#depot {
+    max-width: 300px;
+    margin: auto;
+}
+#zonedepot-ele {
+    padding-bottom: 30px;
+}
+.titre-depot {
+    padding-bottom: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+.fic-depot {
+    border: 1px solid black;
+    padding: 10px;
+}
+.icone-depot {
+    padding: 3%;
+  text-align: center;
+}
+.glyphicon-folder-close:before {
+    font-size: 50px;
+}
+.nom-fichier {
+    text-align: center;
+    font-weight: bold;
+
+}
+.tele_fichier {
+    border-radius: 100%;
+    width: 65px;
+    height: 65px;
+    border: none;
+}
+.glyphicon-download-alt:before {
+    font-size: 30px;
+}
+.spacebot20{
+    padding-bottom: 20px;
+}
+#but-depot-fic {
+
+}
+
+/* planning vu eleve / planning client */
+
+.pla-vu-ele {
+  text-align: center;
+}
+.pla-vu-ele div {
+  padding:7px 0;
+}
+.titre-plel , .titre-plcl {
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 25px;
+}
+.cadre1-plel , .cadre2-plel , .cadre3-plel, .cadre1-plcl , .cadre2-plcl {
+    padding-bottom: 40px;
+}
+.lig-rdv-prop, .lig-rdv-cl, .lig-rdv-ele {
+    text-align: center;
+}
+table.cadre-rdv-plcl {
+  width: 100%;
+  border:1px solid;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+tr.lig-rdv-cl td {
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+
+/* fiche évaluation */
+
+#text-ele-mur {
+  text-align: center;
+  width:100%;
+}
+.table-ficheeva table input {
+  width:100%;
+}
+.table-id-ficheeva {
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+.cadre-table {
+  max-width: 350px;
+  margin:auto;
+}
+.titre-parti {
+  padding-top:30px;
+}
+
+/* Consultation depot eleve */
+
+.nom-fichier {
+  padding:10px;
+}
+.fic-depot form div {
+  padding:5px;
+}
+
+/* Equipe */
+
+.table-equipe table.table.table-striped {
+  border-collapse: separate;
+  border-spacing: 15px;
+}
+.table-equipe table.table.table-striped th{
+  text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media screen and (min-width: 768px) {
+    .header {
+      margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+  .header {
+    position: initial;
+    width:100%;
+    height: initial;
+    min-height: 66px;
+    background-color: #0061a1;
+  }
+  .navbar {
+    background-color: #0061a1;
+    height: 100%;
+  }
+  .navbar-toggle {
+    margin-top: 8px;
+  }
+  .icone-depot {
+    display: none;
+  }
+  .fic-depot{
+    text-align: center;
+  }
+  .page-authen{
+    margin-bottom: -102px;
+    margin-top: -66px;
+  }
+  #bs-example-navbar-collapse-1{
+    height: initial !important;
+    z-index: 100;
+  }
+  #cadre-content {
+    padding-top:0;
+  }
+  .menu-g {
+    border-bottom: 1px solid grey;
+    padding-bottom:10px;
+  }
+
+}
+@media screen and (max-width: 313px) {
+  .logo-site {
+    font-size: 23px;
+  }
+}

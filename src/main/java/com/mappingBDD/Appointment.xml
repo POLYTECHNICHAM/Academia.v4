@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+  <entity class="com.Entities.Appointment">
+    <table name="appointment" schema="academia" catalog=""/>
+    <attributes>
+      <id name="id">
+        <column name="id" precision="11"/>
+      </id>
+      <basic name="dateA">
+        <column name="dateA" nullable="false" length="45"/>
+      </basic>
+      <basic name="hStart">
+        <column name="hStart" nullable="false" length="45"/>
+      </basic>
+      <basic name="hEnd">
+        <column name="hEnd" nullable="false" length="45"/>
+      </basic>
+      <basic name="remark">
+        <column name="remark" nullable="false"/>
+      </basic>
+      <basic name="deliveredTools">
+        <column name="DeliveredTools" nullable="false" length="45"/>
+      </basic>
+      <basic name="teamByTeamId">
+        <column name="Team_id" nullable="false" precision="11"/>
+      </basic>
+      <basic name="typeAppointment">
+        <column name="typeAppointment" nullable="false" precision="4"/>
+      </basic>
+      <basic name="personByPersonId">
+        <column name="Person_id" nullable="false" precision="11"/>
+      </basic>
+      <many-to-one name="teamByTeamId" optional="true" target-entity="com.Entities.Team">
+        <join-column name="Team_id" nullable="false" referenced-column-name="id"/>
+      </many-to-one>
+      <many-to-one name="personByPersonId" optional="true" target-entity="com.Entities.Person">
+        <join-column name="Person_id" nullable="false" referenced-column-name="id"/>
+      </many-to-one>
+      <one-to-many name="featuresById" mapped-by="appointment" target-entity="com.Entities.Feature"/>
+    </attributes>
+  </entity>
+</entity-mappings>

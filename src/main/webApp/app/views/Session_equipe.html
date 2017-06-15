@@ -1,0 +1,97 @@
+<div class="row">
+        <section class="col-sm-2 col-md-2 menu-g">
+            <ul class="nav nav-pills nav-stacked">
+                <li ><a href="#/PlanningRespo"><i class="fa fa-home fa-fw"></i>Planning</a></li>
+                <li><a href="#/GestionClients"><i class="fa fa-list-alt fa-fw"></i>Gestion clients</a></li>
+                <li><a >Session 1<i class="fa fa-list-alt fa-fw glyphicon glyphicon-chevron-down"></i></a></li >
+                <li class="active"><a href="#/Equipe"><i class="fa fa-bar-chart-o fa-fw"></i>Equipes</a></li>
+                <li><a href="#/Sujet"><i class="fa fa-table fa-fw"></i>Sujets</a></li>
+                <li><a href="#/ConsultationDepotEleve"><i class="fa fa-tasks fa-fw"></i>Dépôts élèves</a></li>
+                <li><a href="#/MurRespo"><i class="fa fa-calendar fa-fw"></i>Mur</a></li>
+                <li><a >Session 2<i class="fa fa-list-alt fa-fw glyphicon glyphicon-chevron-down"></i></a></li >
+                <li><a >Session 3<i class="fa fa-list-alt fa-fw glyphicon glyphicon-chevron-down"></i></a></li >
+                <li><a >Session 4<i class="fa fa-list-alt fa-fw glyphicon glyphicon-chevron-down"></i></a></li >
+            </ul>
+        </section>
+
+<div class="col-sm-10 col-md-10 spacer5">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 spacebot20">
+            <div class="btn-group" role="group" >
+              <button type="button" class="btn btn-default" id="showr" ng-click="vm.check=1">Livrables</button>
+              <button type="button" class="btn btn-default" id="hidr" ng-click="vm.check=2">Eleves</button>
+              <button type="button" class="btn btn-default" id="suivi" ng-click="vm.check=3">Suivi</button>
+              <button type="button" class="btn btn-default" id="cr" ng-click="vm.check=4">Compte-rendu</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="cold-md-8">
+            <div class="container" id="livrable" ng-if="vm.check==1">
+              <div class="table-responsive">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td>Image</td>
+                    <td>Livrable</td>
+                    <td>Déposé le XX/XX/XXXX</td>
+                    <td>Image</td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="container" id="eleves" ng-if="vm.check==2">
+          <div class="table-responsive">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>Image</td>
+                <td>Eleve</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+    </div>
+
+     <div class="row">
+        <div class="container" id="sclient" ng-if="vm.check==3">
+          <div class="table-responsive">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>Blablablablablablablablablablabla</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="container" id="crendu" ng-if="vm.check==4">
+              <div class="table-responsive">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td>Image</td>
+                    <td>Rendez-vous</td>
+                    <td>Déposé le XX/XX/XXXX</td>
+                    <td>Image</td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
