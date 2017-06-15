@@ -1,5 +1,7 @@
 package com.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -103,6 +105,7 @@ public class Appointment {
 
   @ManyToOne
   @JoinColumn(name = "Person_id", referencedColumnName = "id")
+  @JsonBackReference
   public Person getPersonByPersonId() {
     return personByPersonId;
   }
