@@ -35,6 +35,12 @@ public class TeamResource {
   public List<Team> getTeamOfClient(@PathVariable Integer clientId)throws URISyntaxException{
     return teamService.getTeamOfClient(clientId);
   }
+  @GetMapping("/team/student/{studentId}")
+  public Team getTeamOfStudent(@PathVariable Integer studentId)throws URISyntaxException{
+    Team t=teamService.getTeamOfStudent(studentId);
+
+    return t;
+  }
 
   @GetMapping("/teamId")
   public Integer getTeamId(@RequestParam(value = "teamName") String teamName)throws URISyntaxException{

@@ -97,6 +97,7 @@ public class Person implements Serializable{
   }
 
   @OneToMany(mappedBy = "personByPersonId")
+  @JsonBackReference
   public Collection<Appointment> getAppointmentsById() {
     return appointmentsById;
   }

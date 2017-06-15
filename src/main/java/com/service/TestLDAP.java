@@ -28,10 +28,6 @@ public class TestLDAP
 
     LDAPObject test = new LDAPObject();
     return test;
-//		} catch(Exception e) {
-//			System.err.println(e.getMessage());
-//			return null;
-//		}
 	}
 
 }

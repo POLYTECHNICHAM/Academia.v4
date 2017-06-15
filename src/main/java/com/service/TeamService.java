@@ -55,6 +55,15 @@ public class TeamService {
     Integer teamId = team.getId();
     return teamId;
   }
+  public Team getTeamOfStudent(Integer studentId){
+    if(teamRepository.findTeamByPersons_Id(studentId).size()>0){
+      return teamRepository.findTeamByPersons_Id(studentId).get(0);
+    }else{
+      Team t=new Team();
+      t.setId(-1);
+      return t;
+    }
+  }
 
   public void deleteTeam(Integer id){
 

@@ -4,7 +4,7 @@
     <img class="logo1" src="images/logoacademia.jpg" alt="logo academia" height="102" width="212">
   </p>
   <div class="cadre-authen">
-  <div ng-if="vm.currentUser.login!=null">Welcome {{vm.currentUser.id}} {{vm.currentUser.firstName}} {{vm.currentUser.lastName}}</div>
+  <div ng-if="vm.currentUser.login!=null">Welcome {{vm.currentUser.firstName}} {{vm.currentUser.lastName}}</div>
   <div ng-if="vm.currentUser.login==null">
     <form name="editForm" role="form" novalidate ng-submit="vm.login()" show-validation>
       <p>
@@ -53,7 +53,10 @@
     </a>
   </div>
   <div class="col-xs-12 col-sm-4 col-md-4" role="group" has-any-authority="ELEVE,ADMIN">
-    <a href="#/RepartitionEquipeEleve">
+    <a href="#/EditTeam" ng-if="vm.team!=null" >
+      <button type="button" class="btn btn-primary">Élève</button>
+    </a>
+    <a href="#/RepartitionEquipe" ng-if="vm.team==null">
       <button type="button" class="btn btn-primary">Élève</button>
     </a>
   </div>

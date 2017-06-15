@@ -49,6 +49,22 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
         authorizedRoles: [USER_ROLES.all]
       }
     })
+    .when('/RepartitionEquipe', {
+      templateUrl : 'views/RepartitionEquipe.html',
+      controller : 'RepartitionEquipe',
+      controllerAs:'vm',
+      data:{
+        authorizedRoles: [USER_ROLES.all]
+      }
+    })
+    .when('/EditTeam', {
+      templateUrl : 'views/EditTeam.html',
+      controller : 'TeamStudent',
+      controllerAs:'vm',
+      data:{
+        authorizedRoles: [USER_ROLES.all]
+      }
+    })
     .when('/Session_equipe', {
       templateUrl : 'views/Session_equipe.html',
       controller : 'SEController',

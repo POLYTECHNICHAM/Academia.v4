@@ -19,7 +19,14 @@ public class PersonService {
     personRepository.findAll().forEach(personsList::add);
     return personsList;
   }
+  public List<Person> getEleves(){
 
+    List<Person> elevesList = new ArrayList<>();
+    personRepository.findAllByTypePersonLike("eleve").forEach(elevesList::add);
+
+    return elevesList;
+
+  }
   public Person createPerson(Person person){
     return personRepository.save(person);
   }

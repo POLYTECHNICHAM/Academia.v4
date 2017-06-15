@@ -4,9 +4,9 @@
   angular.module('webAppApp')
     .controller('RepartitionEquipeEleve', RepartitionEquipeEleve);
 
-  RepartitionEquipeEleve.$inject=['$scope','RepartitionEquipeEleveService','$uibModal','Session'];
+  RepartitionEquipeEleve.$inject=['$scope','TeamService','$uibModal','Session'];
 
-  function RepartitionEquipeEleve($scope,RepartitionEquipeEleveService, $uibModal,Session) {
+  function RepartitionEquipeEleve($scope,TeamService, $uibModal,Session) {
     var vm = this;
     vm.currentUser=Session;
     vm.save = save;
@@ -34,7 +34,7 @@
     function save() {
       vm.isSaving = true;
       for(var i=0;i<vm.number;i++)
-        RepartitionEquipeEleveService.save(vm.team, onSaveSuccess, onSaveError);
+        TeamService.save(vm.team, onSaveSuccess, onSaveError);
     }
   }
 })();

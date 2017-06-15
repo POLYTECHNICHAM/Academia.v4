@@ -43,7 +43,7 @@ public class Team implements Serializable {
   }
 
   @OneToMany(mappedBy = "teamByTeamId")
-  @JsonBackReference(value = "appointmentsById")
+  @JsonBackReference
   public Collection<Appointment> getAppointmentsById() {
     return appointmentsById;
   }
