@@ -39,24 +39,24 @@ public class LoginResource extends HttpServlet {
     }else{}
     Person person=new Person();
     LDAPObject information=TestLDAP.IsepApi(login);
-    if(login.getLogin().equals("toto")){
+    if(login.getLogin().equals("admin")){
       if (!personService.personExistByLogin(login.getLogin())) {
         person.setLogin(login.getLogin());
         person.setDateYear("2017");
-        person.setFirstName("toto");
-        person.setLastName("bob");
+        person.setFirstName("admin");
+        person.setLastName("admin");
         person.setTypePerson("admin");
         person = personService.createPerson(person);
       } else {
         person = personService.getOnePersonByLogin(login.getLogin());
       }
     }else {
-      if (login.getLogin().equals("titi")) {
+      if (login.getLogin().equals("respo")) {
         if (!personService.personExistByLogin(login.getLogin())) {
           person.setLogin(login.getLogin());
           person.setDateYear("2017");
-          person.setFirstName("titi");
-          person.setLastName("bobobo");
+          person.setFirstName("respo");
+          person.setLastName("respo");
           person.setTypePerson("respo");
           person = personService.createPerson(person);
         } else {
@@ -64,12 +64,12 @@ public class LoginResource extends HttpServlet {
         }
       }
       else{
-        if (login.getLogin().equals("roro")) {
+        if (login.getLogin().equals("client")) {
           if (!personService.personExistByLogin(login.getLogin())) {
             person.setLogin(login.getLogin());
             person.setDateYear("2017");
-            person.setFirstName("roro");
-            person.setLastName("zozo");
+            person.setFirstName("client");
+            person.setLastName("client");
             person.setTypePerson("client");
             person = personService.createPerson(person);
           } else {
@@ -77,12 +77,12 @@ public class LoginResource extends HttpServlet {
           }
         }
         else{
-          if (login.getLogin().equals("koko")) {
+          if (login.getLogin().equals("eleve")) {
             if (!personService.personExistByLogin(login.getLogin())) {
               person.setLogin(login.getLogin());
               person.setDateYear("2017");
-              person.setFirstName("koko");
-              person.setLastName("kokokookokko");
+              person.setFirstName("eleve");
+              person.setLastName("eleve");
               person.setTypePerson("eleve");
               person = personService.createPerson(person);
             } else {

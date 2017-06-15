@@ -1,0 +1,21 @@
+<div class="col-sm-2 col-md-2 menu-g">
+  <ul class="nav nav-pills nav-stacked">
+    <li ><a href="#/DepotEleve"><i class="fa fa-home fa-fw"></i>Dépôts documents</a></li>
+    <li><a href="#/PlanningVuEleve"><i class="fa fa-file-o fa-fw"></i>Prise de rdv </a></li>
+    <li ><a href="#/MurEleve"><i class="fa fa-bar-chart-o fa-fw"></i>Mur Elève</a></li>
+    <li class="active"><a href="#/SujetEleve"><i class="fa fa-table fa-fw"></i>Sujet</a></li>
+    <li><a href="#/CreationEquipe"><i class="fa fa-calendar fa-fw"></i>Création d'équipe</a></li>
+
+  </ul>
+
+</div>
+<div>
+<h1>Information du compte {{ vm.person.login }} </h1>
+
+
+  Prénom: {{ vm.person.firstName }}<br>
+  Nom: {{ vm.person.lastName }}<br>
+  <div ng-if="vm.person.typePerson=='eleve'">
+    Nom de team: {{vm.team.name}}
+  </div>
+</div>

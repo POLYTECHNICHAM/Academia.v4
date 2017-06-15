@@ -25,28 +25,12 @@ var app = angular
 
 app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
   $routeProvider
-    .when('/EquipesAttribuees', {
-      templateUrl : 'views/EquipesAttribuees.html',
-      controller : '',
-      controllerAs:'an',
-      data:{
-        authorizedRoles: [USER_ROLES.all]
-      }
-    })
-    .when('/FicheEvaluation', {
-      templateUrl : 'views/FicheEvaluation.html',
-      controller : '',
-      controllerAs:'an',
-      data:{
-        authorizedRoles: [USER_ROLES.all]
-      }
-    })
     .when('/CreationEquipe', {
       templateUrl : 'views/CreationEquipe.html',
       controller : 'CreationEquipe',
       controllerAs:'vm',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.respo,USER_ROLES.admin]
       }
     })
     .when('/RepartitionEquipe', {
@@ -54,7 +38,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'RepartitionEquipe',
       controllerAs:'vm',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.eleve,USER_ROLES.admin]
       }
     })
     .when('/EditTeam', {
@@ -62,7 +46,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'EditTeam',
       controllerAs:'vm',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.eleve,USER_ROLES.admin]
       }
     })
     .when('/Session_equipe', {
@@ -70,7 +54,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'SEController',
       controllerAs:'vm',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.respo,USER_ROLES.client,USER_ROLES.admin]
       }
     })
     .when('/PlanningRespo', {
@@ -78,7 +62,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'appointmentManagement',
       controllerAs:'an',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.respo,USER_ROLES.admin]
       }
     })
     .when('/DepotEleve', {
@@ -86,7 +70,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'DepotDocManagement',
       controllerAs:'an',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.eleve,USER_ROLES.admin]
       }
     })
     .when('/PlanningVuEleve', {
@@ -94,7 +78,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'appointmentManagement',
       controllerAs:'an',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.eleve,USER_ROLES.admin]
       }
     })
     .when('/MurEleve', {
@@ -102,14 +86,14 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'wallMessageManagement',
       controllerAs:'sc',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.eleve,USER_ROLES.admin]
       }
     })
     .when('/SujetEleve', {
       templateUrl : 'views/SujetEleve.html',
       controller : '',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.eleve,USER_ROLES.admin]
       }
     })
     .when('/UserManagement', {
@@ -132,7 +116,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'wallMessageManagement',
       controllerAs:'sc',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.respo,USER_ROLES.admin]
       }
     })
     .when('/ConsultationDepotEleve', {
@@ -140,7 +124,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'DepositboxManagement',
       controllerAs:'an',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.eleve,USER_ROLES.admin]
       }
     })
     .when('/Sujet', {
@@ -148,7 +132,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'subjectManagement',
       controllerAs:'sc',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.admin,USER_ROLES.respo]
       }
     })
     .when('/Equipe', {
@@ -156,7 +140,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'teams',
       controllerAs:'vm',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.admin,USER_ROLES.respo]
       }
     })
     .when('/GestionClients', {
@@ -164,7 +148,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'gestionClient',
       controllerAs : 'vm',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.admin,USER_ROLES.respo]
       }
     })
     .when('/Planning', {
@@ -172,7 +156,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'appointmentManagement',
       controllerAs:'an',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.admin,USER_ROLES.respo,USER_ROLES.client]
       }
     })
     .when('/PlanningClient', {
@@ -180,12 +164,21 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller : 'appointmentManagement',
       controllerAs:'an',
       data:{
-        authorizedRoles: [USER_ROLES.all]
+        authorizedRoles: [USER_ROLES.client,USER_ROLES.admin]
       }
     })
     .when('/menuEleve', {
       templateUrl : 'views/menuEleve.html',
       controller : '',
+      data:{
+        authorizedRoles: [USER_ROLES.eleve,USER_ROLES.admin]
+      }
+    })
+    .when('/UserInformation', {
+      url: 'UserInformation',
+      templateUrl: 'views/UserInformation.html',
+      controller: 'UserInformation',
+      controllerAs:'vm',
       data:{
         authorizedRoles: [USER_ROLES.all]
       }
@@ -208,6 +201,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
         authorizedRoles: [USER_ROLES.all]
       }
     })
+
     .when('/authentification/:param1', {
       url: 'authentification',
       templateUrl: 'views/authentification.html',
@@ -254,7 +248,15 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
       controller: 'protectedPage',
       controllerAs: 'vm'
     })
-
+    .when('', {
+      url: 'authentification',
+      templateUrl: 'views/authentification.html',
+      controller: 'Authentification',
+      controllerAs:'vm',
+      data:{
+        authorizedRoles: [USER_ROLES.all]
+      }
+    })
     .otherwise({
       redirectTo: '/authentification',
       data:{

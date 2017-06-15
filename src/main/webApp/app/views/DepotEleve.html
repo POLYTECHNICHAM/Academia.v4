@@ -1,15 +1,16 @@
-   <div class="row">
-        <div class="col-sm-2 col-md-2 menu-g">
-            <ul class="nav nav-pills nav-stacked">
-                <li ><a href="#/RepartitionEquipeEleve"><i class="fa fa-table fa-fw"></i>Répatition équipe</a></li>
-                <li class="active"><a href="#/DepotEleve"><i class="fa fa-home fa-fw"></i>Dépôts documents</a></li>
-                <li><a href="#/PlanningVuEleve"><i class="fa fa-file-o fa-fw"></i>Prise de rdv </a></li>
-                <li><a href="#/MurEleve"><i class="fa fa-bar-chart-o fa-fw"></i>Mur </a></li>
-                <li><a href="#/SujetEleve"><i class="fa fa-table fa-fw"></i>Sujet</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-10 col-md-10 well">
-            <div class="mainContent">
+<div class="row">
+  <div class="col-sm-2 col-md-2 menu-g">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active" ng-if="vm.team!=null" ><a href="#/EquipesAttribuees"><i class="fa fa-list-alt fa-fw"></i>Equipes attribuées</a></li >
+      <li class="active" ng-if="vm.team==null" ><a href="#/RepartitionEquipe"><i class="fa fa-list-alt fa-fw"></i>Equipes attribuées</a></li >
+      <li class="active"><a href="#/DepotEleve"><i class="fa fa-home fa-fw"></i>Dépôts documents</a></li>
+      <li><a href="#/PlanningVuEleve"><i class="fa fa-file-o fa-fw"></i>Prise de rdv </a></li>
+      <li><a href="#/MurEleve"><i class="fa fa-bar-chart-o fa-fw"></i>Mur </a></li>
+      <li><a href="#/SujetEleve"><i class="fa fa-table fa-fw"></i>Sujet</a></li>
+    </ul>
+  </div>
+  <div class="col-sm-10 col-md-10 well">
+    <div class="mainContent">
                 <span id="zonedepot-ele">
                     <p class="titre-depot">Zone de dépot</p>
                     <span id="depot">
@@ -22,7 +23,7 @@
                         </form>
                     </span>
                 </span>
-                <span id="zonedoc" ng-repeat="document in documents">
+      <span id="zonedoc" ng-repeat="document in documents">
                     <p class="titre-depot">Fichier(s) déposé(s)</p>
                     <div class="row fic-depot">
                         <div class="col-md-1 icone-depot glyphicon glyphicon-folder-close"></div>
@@ -41,6 +42,6 @@
                         <button class="col-md-1 tele_fichier glyphicon glyphicon-download-alt" ></button>
                     </div>
                 </span>
-            </div>
-        </div>
     </div>
+  </div>
+</div>
