@@ -59,7 +59,7 @@ app.config(function ($routeProvider, $locationProvider,USER_ROLES) {
     })
     .when('/EditTeam', {
       templateUrl : 'views/EditTeam.html',
-      controller : 'TeamStudent',
+      controller : 'EditTeam',
       controllerAs:'vm',
       data:{
         authorizedRoles: [USER_ROLES.all]

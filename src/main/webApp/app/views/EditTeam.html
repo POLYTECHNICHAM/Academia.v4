@@ -25,11 +25,14 @@
           <td>
             <input type="text" name="teamName" id="teamName" class="inputrond" ng-model="vm.team.name"/></td>
           <td ><div ng-repeat="person in vm.team.persons" ><p ng-if="person.typePerson=='eleve'">{{person.firstName}} {{person.lastName}}</br></p></div></td>
+          <td> <button type="button" class="btn btn-danger"
+                       ng-click="vm.deleted()">
+            <span class="glyphicon glyphicon-remove"></span>Quitter l'équipe</button></td>
         </tr>
         </tbody>
       </table>
       <div ng-if="vm.messageSucess">
-          {{vm.messageSucess}}
+        {{vm.messageSucess}}
       </div>
 
 

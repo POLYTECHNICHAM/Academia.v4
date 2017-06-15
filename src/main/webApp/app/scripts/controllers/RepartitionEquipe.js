@@ -4,9 +4,9 @@
   angular.module('webAppApp')
     .controller('RepartitionEquipe', RepartitionEquipe);
 
-  RepartitionEquipe.$inject=['$scope','TeamService','TeamServiceUpdateOne','$uibModal','Session'];
+  RepartitionEquipe.$inject=['$scope','$location','TeamService','TeamServiceUpdateOne','$uibModal','Session'];
 
-  function RepartitionEquipe($scope,TeamService,TeamServiceUpdateOne, $uibModal,Session) {
+  function RepartitionEquipe($scope,$location,TeamService,TeamServiceUpdateOne, $uibModal,Session) {
     var vm = this;
     vm.currentUser=Session;
     vm.init=init;
@@ -35,12 +35,12 @@
       vm.number=0;
     }
     function onSaveSuccess(result) {
-      vm.messageSucess = "Les "+vm.number+" ont bien été créé";
       vm.isSaving = false;
+      $location.path('/EditTeam')
     }
 
     function onSaveError() {
-      vm.messageSucess = "La mise à jour n'a pas été effectuée.";
+      vm.messageSucess = "L'insertion n'a pas été effectué.";
       vm.isSaving = false;
     }
 

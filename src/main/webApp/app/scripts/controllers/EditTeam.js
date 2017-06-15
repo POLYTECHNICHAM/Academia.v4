@@ -2,11 +2,11 @@
   'use strict';
 
   angular.module('webAppApp')
-    .controller('TeamStudent', TeamStudent);
+    .controller('EditTeam', EditTeam);
 
-  TeamStudent.$inject=['$scope','TeamService','TeamServiceUpdateOne','$uibModal','Session','TeamServiceStudent'];
+  EditTeam.$inject=['$scope','TeamService','TeamServiceUpdateOne','$uibModal','Session','TeamServiceStudent'];
 
-  function TeamStudent($scope,TeamService,TeamServiceUpdateOne , $uibModal,Session,TeamServiceStudent) {
+  function EditTeam($scope,TeamService,TeamServiceUpdateOne , $uibModal,Session,TeamServiceStudent) {
     var vm = this;
     vm.currentUser=Session;
     vm.init=init;
@@ -51,6 +51,19 @@
       });
     }
 
+    function deleted(id) {
+      vm.messageTitle="Voulez vous vraiment quitter l'équipe?";
+      vm.confirm().then(function (result) {
+        if (result) {
+          for(var i=0;i<vm.team.persons.length;i++){
+            if(vm.team.persons[i].id==Session.id){
+              vm.team.persons.splice(i,i);
+            }
+          }
+          TeamServiceUpdateOne.update(vm.team, onSaveSuccess, onSaveError);
+        }
+      });
+    }
 
     function confirm() {
       return $uibModal.open({

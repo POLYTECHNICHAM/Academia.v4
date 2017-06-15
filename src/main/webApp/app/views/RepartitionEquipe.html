@@ -25,7 +25,9 @@
           <td>{{team.name}}</td>
           <td ><div ng-repeat="person in team.persons" ><p ng-if="person.typePerson=='eleve'">{{person.firstName}} {{person.lastName}}</br></p></div></td>
 
-
+          <div ng-if="vm.messageSucess">
+            {{vm.messageSucess}}
+          </div>
           <td><button type="button" class="btn btn-primary"
                       ng-click="vm.addStudent(team)" >
             <span class="glyphicon glyphicon-list-alt"> S'inscrire</span></button>
