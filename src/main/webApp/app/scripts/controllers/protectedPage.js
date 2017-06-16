@@ -4,14 +4,14 @@
   angular.module('webAppApp')
     .controller('protectedPage', protectedPage);
 
-  protectedPage.$inject=['$scope','$window'];
+  protectedPage.$inject=['$scope','$location'];
 
-  function protectedPage($scope,$window) {
+  function protectedPage($scope,$location) {
     var vm = this;
     vm.returnPage=returnPage;
     function returnPage(){
       var i=0;
-      $window.history.back();
+      $location.path('/authentification');
     }
   }
 })();
