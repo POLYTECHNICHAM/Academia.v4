@@ -16,7 +16,7 @@
     vm.messageSucess = false;
     vm.messageTitle=false;
     vm.team={};
-    vm.team.name="d";
+    vm.team.name="Nom par défaut";
 
     function clear() {
       vm.number=0;
