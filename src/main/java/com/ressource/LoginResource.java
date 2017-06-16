@@ -96,6 +96,7 @@ public class LoginResource extends HttpServlet {
               person.setLastName(information.getNomFamille());
               person.setTypePerson(information.getType());
               person = personService.createPerson(person);
+              person = personService.getOnePersonByLogin(information.getLogin());
             } else {
               person = personService.getOnePersonByLogin(information.getLogin());
             }

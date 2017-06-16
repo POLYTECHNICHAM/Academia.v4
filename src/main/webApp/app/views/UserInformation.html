@@ -13,8 +13,8 @@
 <h1>Information du compte {{ vm.person.login }} </h1>
 
 
-  Prénom: {{ vm.person.firstName }}<br>
-  Nom: {{ vm.person.lastName }}<br>
+  Prénom et nom: {{ vm.person.firstName }}<br>
+  <!--Nom: {{ vm.person.lastName }}<br>-->
   <div ng-if="vm.person.typePerson=='eleve'">
     Nom de team: {{vm.team.name}}
   </div>

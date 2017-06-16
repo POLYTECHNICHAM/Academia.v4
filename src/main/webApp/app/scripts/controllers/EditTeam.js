@@ -39,7 +39,7 @@
 
     function save() {
       vm.isSaving = true;
-      vm.messageTitle="Voulez-vous vraiment vous inscrire dans cette équipe?";
+      vm.messageTitle="Voulez-vous vraiment vous éditer dans cette équipe?";
       vm.confirm().then(function (result) {
         if (result) {
           if (vm.team.id !== null) {

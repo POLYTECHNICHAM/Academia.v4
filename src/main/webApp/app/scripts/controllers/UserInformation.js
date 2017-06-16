@@ -8,6 +8,7 @@
 
   function UserInformation($scope, Session,UserManagementService,TeamServiceStudent) {
     var vm = this;
+
     vm.init=init;
     vm.initTeam=initTeam;
     vm.init();
